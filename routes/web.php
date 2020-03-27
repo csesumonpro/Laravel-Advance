@@ -21,3 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('create-db-backup','DatabaseHandelerController@createDbBackup')->name('createDbBackup');
+Route::post('import-sql','DatabaseHandelerController@importSql')->name('importSql');

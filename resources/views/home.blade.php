@@ -7,7 +7,11 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
                 <a href="{{route('createDbBackup')}}">Create A Sql Backup</a>
-
+                <form action="{{route('importSql')}}" method="post" enctype="multipart/form-data">
+                    <input type="file"  name="sql" accept=".sql">
+                    @csrf
+                    <button type="submit">Import</button>
+                </form>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
