@@ -6,6 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Dashboard</div>
+                <a href="{{route('createDbBackup')}}">Create A Sql Backup</a>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -15,6 +16,12 @@
                     @endif
 
                     You are logged in!
+                    <ul>
+                        @foreach(\App\DatabaseHandeler::all() as $db)
+                        <li><a href="{{asset('database/'.$db->path)}}">{{$db->path}}</a></li>
+                        @endforeach
+
+                    </ul>
                 </div>
             </div>
         </div>
